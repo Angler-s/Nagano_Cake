@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   has_one_attached :item_image
   belongs_to :item_genre 
   
-  validates :genre_id, presence: true
+  validates :genre_id
   validates :name, presence: true
   validates :introduction, presence: true
   validates :price, presence: true

@@ -22,7 +22,8 @@
       
       <div class="form-group">
       <%= f.label :genre_id, 'ジャンル' %>
-      <%= f.select :genre_id, [['ケーキ', 1], ['プリン', 2], ['焼き菓子', 2], ['キャンディ', 4]], { include_blank: "--選択してください--"}, {} %>
+      <%= f.hidden_field :item_genre_id, :value => 1%>
+      <%# f.select :genre_id, [['ケーキ', 1], ['プリン', 2], ['焼き菓子', 2], ['キャンディ', 4]], { include_blank: "--選択してください--"}, {} %>
       </div>
       
       <div class="form-group">
@@ -35,7 +36,7 @@
         <%= f.radio_button :is_availabled, true, checked: true %>
         <%= f.label :is_availabled, '販売中', value: true %>
         <%= f.radio_button :is_availabled, false %>
-        <%= f.label :is_availabled, '販売中', value: false %>
+        <%= f.label :is_availabled, '販売停止', value: false %>
       </div>
       
       <div class="form-group">
