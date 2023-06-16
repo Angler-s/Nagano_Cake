@@ -13,21 +13,15 @@
       <% @orders.each do |customer| %>
       <tbody>
         <tr>
-          <td>
             <!--購入日時-->
-            <%= link_to l order.created_at, admin_order_path(order) %>
-          </td>
+          <td><%= link_to l order.created_at, admin_order_path(order) %></td>
             <!--購入者名-->
-          <td>
-            <%= order.customer.last_name %>
-            <%= order.customer.first_name %>
-          </td>
+             <!--customer.name = #{first_name} + #{last_name} となるようにCustomerモデルに記載する-->
+          <td><%= order.customer.name %></td>
             <!--注文個数-->
-          <td>
-
-          </td>
+          <td><%= order_items.sum(:count) %></td>
             <!--注文ステータス-->
-          <td><%= order.status %></td>
+          <td><%= order.status_i18n %></td>
         </tr>
       </tbody>
     </table>
