@@ -8,7 +8,11 @@
           <li><a href="#" class="nav-link">商品一覧</a></li>
           <li><a href="#" class="nav-link">会員一覧</a></li>
           <li><a href="#" class="nav-link">注文履歴一覧</a></li>
-          <li><a href="#" class="nav-link">ジャンル一覧</a></li>
+          <li>
+            <%= link_to admin_item_genres_path, class: 'nav-link' do %>
+              ジャンル一覧
+            <% end %>
+          </li>
           <li>
             <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link' do %>
               ログアウト
@@ -34,6 +38,11 @@
           <li>
             <%= link_to new_customer_session_path ,class: 'nav-link' do %>
               ログイン
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_admin_session_path ,class: 'nav-link text-danger' do %>
+              管理者ログイン（デバッグ用）
             <% end %>
           </li>
         <% end %>
