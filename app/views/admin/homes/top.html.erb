@@ -16,7 +16,7 @@
             <!--購入日時-->
           <td><%= link_to l order.created_at, admin_order_path(order) %></td>
             <!--購入者名-->
-             <!--customer.name = #{first_name} + #{last_name} となるようにCustomerモデルに記載する-->
+            <!--customer.name = #{first_name} + #{last_name} となるようにCustomerモデルに記載する-->
           <td><%= order.customer.name %></td>
             <!--注文個数-->
           <td><%= order_items.sum(:count) %></td>
