@@ -1,7 +1,6 @@
 class Admin::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
-    @full_name = full_name(@customer)
   end
 
   def index
@@ -10,7 +9,6 @@ class Admin::CustomersController < ApplicationController
 
   def edit
     @customer = Customer.find(params[:id])
-    @full_name = full_name(@customer)
   end
 
   def update
@@ -28,7 +26,4 @@ class Admin::CustomersController < ApplicationController
     params.require(:customer).permit(:last_name, :last_name_kana, :first_name, :first_name_kana, :address, :postal_code, :phone_number, :email, :is_deleted)
   end
 
-  def full_name(customer)
-    customer.last_name + customer.first_name
-  end
 end
