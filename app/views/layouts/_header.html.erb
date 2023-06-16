@@ -36,6 +36,11 @@
               ログイン
             <% end %>
           </li>
+          <li>
+            <%= link_to new_admin_session_path ,class: 'nav-link text-danger' do %>
+              管理者ログイン（デバッグ用）
+            <% end %>
+          </li>
         <% end %>
       </ul>
     </div>
