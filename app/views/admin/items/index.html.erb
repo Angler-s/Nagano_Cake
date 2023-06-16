@@ -1,29 +1,33 @@
-<h3>商品一覧</h3>
 
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-      <th>ジャンル</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.id %></td>
-        <td><%= item.name %></td>
-        <td><%= item.price %></td>
-        <td><%= item.item_jenre.name %></td>
-        <td><%= item.isavailabled? %></td>
-      </tr>
-    <% end %>  
-  </tbody>
-</table>
-
-<div>
-  <%= paginate @items %>
+<div class="row">
+  <div class="col-8">
+    <h3>商品一覧</h3>
+    <%= link_to '＋', new_admin_item_path %> 
+    <table class="table">
+      <thead>
+        <tr>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= item.name %></td>
+            <td><%= item.price %></td>
+            <td><%= item.item_jenre.name %></td>
+            <td><%= item.isavailabled? %></td>
+          </tr>
+        <% end %>  
+      </tbody>
+    </table>
+    
+    <div>
+      <%= paginate @items %>
+    </div>
+  </div>
 </div>
