@@ -7,20 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create(email: "mail@1", password: "123456")
 
- ItemGenre.create!(
-  [
-    {
-      name: 'ケーキ',
-    },
-    {
-      name: 'プリン',
-    },
-    {
-      name: '焼き菓子',
-    },
-    {
-      name: 'キャンディ',
-    },
-  ]
- )
-
+ItemGenre.create!(
+[
+  {
+    name: 'ケーキ',
+  },
+  {
+    name: 'プリン',
+  },
+  {
+    name: '焼き菓子',
+  },
+  {
+    name: 'キャンディ',
+  },
+]
+)
