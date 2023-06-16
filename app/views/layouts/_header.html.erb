@@ -1,0 +1,43 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a href="#" class="navbar-brand">LOGO</a>
+      <!--エンドユーザーがログイン中”ようこそ、〇〇さん！”と表示する-->
+      <ul class="navbar-nav ml-auto">
+        <% if admin_signed_in? %>
+          <li><a href="#" class="nav-link">商品一覧</a></li>
+          <li><a href="#" class="nav-link">会員一覧</a></li>
+          <li><a href="#" class="nav-link">注文履歴一覧</a></li>
+          <li><a href="#" class="nav-link">ジャンル一覧</a></li>
+          <li>
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link' do %>
+              ログアウト
+            <% end %>
+          </li>
+        <% elsif customer_signed_in? %>
+          <li><a href="#" class="nav-link">マイページ</a></li>
+          <li><a href="#" class="nav-link">商品一覧</a></li>
+          <li><a href="#" class="nav-link">カート</a></li>
+          <li>
+            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link' do %>
+              ログアウト
+            <% end %>
+          </li>
+        <% else %>
+          <li><a href="#" class="nav-link">About</a></li>
+          <li><a href="#" class="nav-link">商品一覧</a></li>
+          <li>
+            <%= link_to new_customer_registration_path ,class: 'nav-link' do %>
+              新規登録
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_customer_session_path ,class: 'nav-link' do %>
+              ログイン
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>
