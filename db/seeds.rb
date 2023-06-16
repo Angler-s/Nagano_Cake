@@ -7,3 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create(email: "mail@1", password: "123456")
 
+ Item.create!(
+  [
+    {
+      name: 'ショートケーキ',
+      genre_id: '1',
+      introduction: 'テストのケーキです。',
+      price: '500',
+      is_availabled: 'true',
+
+    }
+  ]
+ )
+
