@@ -8,8 +8,8 @@ class Admin::ItemsController < ApplicationController
   def create
     @genres = ItemGenre.pluck(:name, :id)
     item = Item.new(item_params)
-    item.save!
-    redirect_to admin_item_genres_path
+    item.save
+    redirect_to admin_item_path(item)
   end
 
   def show
