@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
   has_one_attached :item_image
   belongs_to :item_genre, foreign_key: 'genre_id'
+  has_many :cart_items
+  has_many :order_items
 
   validates :genre_id, presence: true
   validates :name, presence: true
@@ -8,7 +10,7 @@ class Item < ApplicationRecord
   validates :price, presence: true,
             numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
               format: { with: /\A[0-9]+\z/ }
-  
+
   validates :is_availabled, presence: true
 
   def get_item_image(width, heigh)
