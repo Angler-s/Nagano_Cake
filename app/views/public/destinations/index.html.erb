@@ -1,2 +1,47 @@
-<h1>Public::Destinations#index</h1>
-<p>Find me in app/views/public/destinations/index.html.erb</p>
+<div class="row">
+  <h3>配送先登録/一覧</h3>
+</div>
+<div class="row">
+  <%= form_with model: @destination do |f| %>
+  <div>
+    <table class="table">
+      <tr>
+        <td><%= f.label :postal_code, "郵便番号(ハイフン無し)" %></td>
+        <td><%= f.text_field :postal_code, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :address, "住所" %></td>
+        <td><%= f.text_field :address, class: "form-contorl" %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :name, "宛先" %></td>
+        <td><%= f.text_field :name, class: "form-control" %></td>
+        <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
+      </tr>
+    </table>
+  </div>
+  <% end %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>郵便番号</th>
+        <th>住所</th>
+        <th>宛名</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @destinations.each do |destination| %>
+        <tr>
+          <td><%= destination.postal_code %></td>
+          <td><%= destination.address %></td>
+          <td><%= destination.name %></td>
+          <td class="text-center">
+            <%= link_to "編集する", edit_destination_path(destination), class: "btn btn-success" %>
+            <%= link_to "削除する", destination_path(destination), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
