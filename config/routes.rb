@@ -34,8 +34,8 @@ Rails.application.routes.draw do
 
   namespace :public do
     get 'customers/show'
-    get 'customers/information/edit'
-    get 'customers/information/confirm'
+    get 'customers/information/edit' => 'customers#edit'
+    get 'customers/information/confirm' => 'customers#confirm'
     patch 'customers/information' => 'customers#update'
     patch 'customers/quit'
 
