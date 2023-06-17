@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="350" height="350" viewBox="0, 0, 350, 350">
+  <g id="Layer_1">
+    <path d="M174.5,277 C104.636,277 48,224.292 48,150.5 C48,81.485 104.636,24 174.5,24 C244.364,24 301,81.485 301,150.5 C301,219.515 248.292,277 174.5,277 z" fill-opacity="0" stroke="#000000" stroke-width="8"/>
+    <path d="M174.5,288.5 C98.285,288.5 36.5,231 36.5,150.5 C36.5,75.211 98.285,12.5 174.5,12.5 C250.715,12.5 312.5,75.211 312.5,150.5 C312.5,225.789 255,288.5 174.5,288.5 z" fill-opacity="0" stroke="#000000" stroke-width="2"/>
+  </g>
+  <g id="Layer_3">
+    <path d="M72.5,216.5 L276.5,216.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M72.5,84.336 L276.5,84.336" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M83.833,72.5 L265.167,72.5" fill-opacity="0" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+    <path d="M83.833,228.5 L265.167,228.5" fill-opacity="0" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g id="Layer_2.">
+    <path d="M72.5,96.5 C72.5,96.5 72.5,204.5 72.5,204.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M72.5,96.5 C72.5,97.547 96.5,204.5 96.5,204.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M96.5,96.5 L96.5,204.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M108.5,204.5 L108.5,96.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M108.5,96.5 L132.5,204.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M108.5,156.5 L132.5,156.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M156.5,96.5 L144.5,144.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M156.5,96.5 L168.5,136.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M144.5,144.5 L156.5,204.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M156.5,204.5 L168.5,156.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M168.5,156.5 L156.5,156.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M180.5,204.5 L180.5,96.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M180.5,96.5 L204.5,204.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M204.5,156.5 L180.5,156.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M216.5,204.5 L216.5,96.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M216.5,96.5 L240.5,204.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M240.5,204.5 L240.5,96.5" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+    <path d="M264.5,204.5 C257.873,204.5 252.5,180.323 252.5,150.5 C252.5,120.677 257.873,96.5 264.5,96.5 C271.127,96.5 276.5,120.677 276.5,150.5 C276.5,180.323 271.127,204.5 264.5,204.5 z" fill-opacity="0" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g id="Layer_4">
+    <text transform="matrix(1, 0, 0, 1, 180, 324)">
+      <tspan x="-158.775" y="14" font-family="Avenir-Black" font-size="50" fill="#000000">Nagano Cake</tspan>
+    </text>
+  </g>
+</svg>
