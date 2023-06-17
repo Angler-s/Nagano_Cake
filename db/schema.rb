@@ -91,6 +91,3 @@ ActiveRecord::Schema.define(version: 2023_06_16_051742) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
 end
-
-
-genre_id:item_genre_id
