@@ -11,7 +11,6 @@ class Item < ApplicationRecord
             numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
               format: { with: /\A[0-9]+\z/ }
 
-  validates :is_availabled, presence: true
 
   def get_item_image(width, height)
     unless item_image.attached?
@@ -25,7 +24,7 @@ class Item < ApplicationRecord
     if self.is_availabled? == true
       "販売中"
     else
-      "販売停止"
+      "販売停止中"
     end
   end
   
