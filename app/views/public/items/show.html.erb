@@ -1,2 +1,17 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="row">
+  <%= render "genre", genres: @genres %>
+  <div class="col-md-4 offset-md-1 my-5">
+    <%= image_tag @item.item_image, size: "300x200" %>
+  </div>
+  <div class="col-md-5 my-5">
+    <h3><b><%= @item.name %></b></h3><br>
+    <h4><%= @item.introduction %></h4><br>
+    <h5><b>¥<%= @item.price %></b>(税込）</h5><br>
+    <%= form_with model: @item do |f| %>
+      <%= f.label :count, "個数選択" %>
+      <%= f.select :count, [1,2,3,4,5,6,7,8,9,10]%>
+      <%# hidden_filed :item_id, :value => @item.id %>
+      <%= f.submit 'カートに入れる', class:"btn btn-success ml-3" %>
+    <% end %>
+  </div>
+</div>

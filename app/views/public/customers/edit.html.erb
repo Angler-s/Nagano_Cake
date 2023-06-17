@@ -1,2 +1,49 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h2>会員情報編集</h2>
+    <%= form_with model: @customer, url: public_customers_show_path  do |f| %>
+      <table class="table table-borderless mt-3">
+        <tr>
+          <td>会員ID</td>
+          <td><%= @customer.id %></td>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td><%= f.text_field :last_name, class: "form-control" %></td>
+          <td><%= f.text_field :first_name, class: "form-control" %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>フリガナ</td>
+          <td><%= f.text_field :last_name_kana, class: "form-control" %></td>
+          <td><%= f.text_field :first_name_kana, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td>郵便番号</td>
+          <td><%= f.text_field :postal_code, class: "form-control" %></td>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td colspan="2"><%= f.text_field :address, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= f.text_field :phone_number, class: "form-control" %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= f.email_field :email, class: "form-control" %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "編集内容を保存", class: "btn btn-success" %></td>
+          <td><%= link_to "退会する", public_customers_information_confirm_path, class: "btn btn-danger btn-md" %></td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</div>
