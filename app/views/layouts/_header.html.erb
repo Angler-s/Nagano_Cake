@@ -28,7 +28,7 @@
             <% end %>
           </li>
         <% else %>
-          <li><a href="#" class="nav-link">About</a></li>
+          <li><%= link_to "About", homes_about_path, class: 'nav-link'%></li>
           <li><a href="#" class="nav-link">商品一覧</a></li>
           <li>
             <%= link_to new_customer_registration_path ,class: 'nav-link' do %>

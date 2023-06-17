@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="800" height="400" viewBox="0, 0, 800, 400">
+  <g id="Layer_1I">
+    <path d="M36.5,217.857 L393.495,217.857" fill-opacity="0" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+    <path d="M36.5,217.857 L216.248,125.254" fill-opacity="0" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+    <path d="M293.273,85.572 L312.93,75.446" fill-opacity="0" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+    <path d="M312.93,75.446 C365.934,90.214 393.052,154.032 396.5,214.936" fill-opacity="0" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+    <path d="M36.5,217.857 L36.5,362.5" fill-opacity="0" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+    <path d="M36.5,362.5 L180.5,362.5" fill-opacity="0" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+    <path d="M36.5,314.286 L180.702,314.286" fill-opacity="0" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+    <path d="M36.5,276.5 L180.5,276.5" fill-opacity="0" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+    <path d="M256.566,169.643 C250.346,169.745 245.087,168.319 239.219,166.077" fill-opacity="0" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+    <path d="M296.578,133.482 C296.578,153.453 278.664,169.643 256.566,169.643" fill-opacity="0" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+    <path d="M216.813,124.486 C217.896,101.423 220.613,77.888 231.412,57.409 C236.863,47.403 245.059,38.821 256.566,38.5" fill-opacity="0" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+    <path d="M256.566,38.5 C283.241,38.5 296.578,72.282 296.578,133.482" fill-opacity="0" stroke="#000000" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  <g id="メ，Layer_2">
+    <text transform="matrix(1, 0, 0, 1, 490, 331)">
+      <tspan x="-293.795" y="7" font-family="ArialRoundedMTBold" font-size="91" fill="#000000">Nagano Cake</tspan>
+    </text>
+  </g>
+</svg>
