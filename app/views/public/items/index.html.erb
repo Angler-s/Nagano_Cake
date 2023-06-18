@@ -2,7 +2,7 @@
   <%= render "genre", genres: @genres %>
 
   <div class="col-md-9">
-    <h2 class="my-2"><b>商品一覧</b>（全<%= @items.count %>件）</h2>
+    <h2 class="my-2"><b>商品一覧</b>（全<%= @item_all.count %>件）</h2>
       <% @items.each do |item| %>
         <div class="d-inline-flex">
           <div class="items my-3">
