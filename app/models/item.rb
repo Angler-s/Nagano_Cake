@@ -27,7 +27,7 @@ class Item < ApplicationRecord
       "販売停止中"
     end
   end
-  
+
   def with_tax_price
     (price * 1.1).floor
   end
