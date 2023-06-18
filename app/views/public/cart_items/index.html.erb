@@ -22,7 +22,7 @@
                 <%= item.item.name %></td>
             <td><%= item.item.with_tax_price.to_s(:delimited) %></td>
             <td>
-              <%= form_with model: @cart_items, url: cart_item_path(item.item_id), method: :patch do |f| %>
+              <%= form_with model: item, url: cart_item_path(item), method: :patch do |f| %>
                 <%= f.select :count, *[1..10]  %>
                 <%= f.submit '変更', class:"btn btn-success" %>
               <% end %>
@@ -40,7 +40,7 @@
           <h6>合計金額</h6>
         </span>
         <span class="border border-dark px-5 py-3">
-          <h6></h6>
+          <h6><%= @total.to_s(:delimited) %></h6>
         </span>
       </div>
       <div class="col-md-10 mx-auto">
