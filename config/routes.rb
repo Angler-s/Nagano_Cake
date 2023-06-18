@@ -15,11 +15,20 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about', as: 'about'
 
     resources :items, only: [:index, :show]
-    resources :cart_items, only: [:index, :create, :update, :destroy]
-    delete 'cart_items/destroy_all'
-    resources :orders, only: [:new, :index, :show, :create]
-    get 'orders/confirm'
-    get 'orders/complete'
+
+    resources :cart_items, only: [:index, :create, :update, :destroy] do
+      collection do
+        delete 'destroy_all'
+      end
+    end
+
+    resources :orders, only: [:new, :index, :show, :create] do
+      collection do
+        post 'confirm'
+        get 'complete'
+      end
+    end
+
     resources :destinations, only: [:index, :edit, :create, :update, :destroy]
 
     get 'customers' => 'customers#show'
