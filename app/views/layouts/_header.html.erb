@@ -19,7 +19,7 @@
             <% end %>
           </li>
         <% elsif customer_signed_in? %>
-          <li><a href="#" class="nav-link">マイページ</a></li>
+          <li><%= link_to "マイページ", public_customers_show_path, class: 'nav-link'%></li>
           <li><%= link_to "商品一覧", items_path, class: 'nav-link'%></li>
           <li><a href="#" class="nav-link">カート</a></li>
           <li>
