@@ -1,2 +1,74 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<div class="row">
+  <h3>注文履歴詳細</h3>
+</div>
+<div class="row">
+  <div>
+    <h4>注文情報</h4>
+    <table class="table table-bordered">
+      <tr>
+        <td>注文日</td>
+        <td><% order.created_at %></td>
+      </tr>
+      <tr>
+        <td>配送先</td>
+        <td>
+          〒<%= order.postal_code %><br>
+            <%= order.address%><br>
+            <%= order.name %>
+        </td>
+      </tr>
+      <tr>
+        <td>支払方法</td>
+        <td><%=  %></td>
+      </tr>
+      <tr>
+        <td>ステータス</td>
+        <td><%=  %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div>
+    <h3>請求金額</h3>
+    <table class="table table-bordered">
+      <tr>
+        <td>商品合計</td>
+        <td>¥<%=  %></td>
+      </tr>
+      <tr>
+        <td>配送料</td>
+        <td><%=  %></td>
+      </tr>
+      <tr>
+        <td>ご請求額</td>
+        <td><%=  %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div>
+    <h3>注文内容</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>商品</th>
+          <th>単価（税込み）</th>
+          <th>個数</th>
+          <th>小計</th>
+        </tr>
+      </thead>
+      <% order.order_items.each do |order_item| %>
+      <tbody>
+        <tr>
+          <td><%= order_item.item.item_name %></td>
+          <td><%= order_item %></td>
+          <td><%= order_item %></td>
+          <td><%= order_item %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
