@@ -59,17 +59,17 @@
           <th>小計</th>
         </tr>
       </thead>
-      <% @order.order_items.each do |order_item| %>
+      <% @order_items.each do |order_item| %>
       <tbody>
         <tr>
           <!--商品名-->
-          <td><%= order_item.item.item_name %></td>
+          <td><%= order_item.item.name %></td>
           <!--単価（税込み）-->
-          <td><%= order_item.item.with_tax_price %></td>
+          <td>¥<%= order_item.price %></td>
           <!--個数-->
           <td><%= order_item.count %></td>
           <!--小計-->
-          <td><%= order_item %></td>
+          <td>¥<%= (order_item.count * order_items.price).to_s(:delimited) %></td>
         </tr>
       </tbody>
       <% end %>
