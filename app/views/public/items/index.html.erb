@@ -1,2 +1,19 @@
-<h1>Public::Items#index</h1>
-<p>Find me in app/views/public/items/index.html.erb</p>
+<div class="row">
+  <%= render "genre", genres: @genres %>
+
+  <div class="col-md-9">
+    <h2 class="my-2"><b>商品一覧</b>（全<%= @item_all.count %>件）</h2>
+      <% @items.each do |item| %>
+        <div class="d-inline-flex">
+          <div class="items my-3">
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.item_image, size: "190x150", class:"mx-1" %><br>
+            <% end %>
+            <%= item.name %><br>
+            ¥<%= item.with_tax_price.to_s(:delimited) %>
+          </div>
+        </div>
+     <% end %>
+     <%= paginate @items %>
+  </div>
+</div>
