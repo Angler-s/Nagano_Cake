@@ -1,51 +1,58 @@
-<h2>注文情報入力</h2>
+<h4 class="ml-3">注文情報入力</h4>
 
 <div>
-  <%= form_with model: @order, url: orders_path do |f| %>
+  <%= form_with model: @order, url: confirm_orders_path do |f| %>
     <h3>支払方法</h3>
-    <div class="form-group">
-      <%= f.label :payment_dredit_card, 'クレジットカード' %>
-      <%= f.radio_button :payment, 'credit_card', checked: true %>
-      <%= f.label :payment_transfer, '銀行振込', value: true %>
-      <%= f.radio_button :payment, 'transfer' %>
+    <div class="ml-5">
+      <div>
+        <%= f.radio_button :payment, 'credit_card', checked: true %>
+        <%= f.label :payment_credit_card, 'クレジットカード' %>
+      </div>
+      <div>
+        <%= f.radio_button :payment, 'transfer' %>
+        <%= f.label :payment_transfer, '銀行振込' %>
+      </div>
     </div>
 
     <h3>お届け先</h3>
-    <div class="form-group">
-      <%= f.label :customer_destination:, 'ご自身の住所' %>
-      <%= f.radio_button :customer_destination, true, checked: true %>
+    <div class="ml-3">
       <div>
-        <%= @customer.address %>
+        <%= f.radio_button :send_to, 'customer_address', checked: true %>
+        <%= f.label :select_destination_customer_address, 'ご自身の住所' %>
+        <div>
+          <%= @customer.postal_code + @customer.address + @customer.full_name %>
+        </div>
       </div>
 
-      <%= f.label :destinations, '登録先住所から選択', value: true %>
-      <%= f.radio_button :destinations, false %>
       <div>
-        <%= f.select :address_id, options_from_collection_for_select(@customer.destinations, :id, :name) %>
+        <%= f.radio_button :send_to, 'recorded_destination' %>
+        <%= f.label :select_destination_recorded_destination, '登録済み住所から選択' %>
+        <div>
+          <%= f.select :destination_id, options_from_collection_for_select(@customer.destinations, :id, :address_display) %>
+        </div>
       </div>
 
-      <%= f.label :new_desitination, '新しいお届け先', value: false %>
-      <%= f.radio_button :new_desitination, value: false %>
-
-      <table class="table">
-        <tr>
-          <td><%= f.label :postal_code, "郵便番号(ハイフン無し)" %></td>
-          <td><%= f.text_field :postal_code, class: "form-control" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :address, "住所" %></td>
-          <td><%= f.text_field :address, class: "form-contorl" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :name, "宛先" %></td>
-          <td><%= f.text_field :name, class: "form-control" %></td>
-        </tr>
-      </table>
+      <div>
+        <%= f.radio_button :send_to, 'new_desitination' %>
+        <%= f.label :select_destination_new_desitination, '新しいお届け先' %>
+        <table class="table">
+          <tr>
+            <td><%= f.label :postal_code, "郵便番号(ハイフン無し)" %></td>
+            <td><%= f.text_field :postal_code, placeholder: "0000000", class: "form-control"%></td>
+          </tr>
+          <tr>
+            <td><%= f.label :address, "住所" %></td>
+            <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :name, "宛先" %></td>
+            <td><%= f.text_field :name, placeholder: "令和道子", class: "form-control" %></td>
+          </tr>
+        </table>
+      </div>
     </div>
-
-    <div class="form-group">
-      <%= f.submit "確認画面へ進む", class: 'btn btn-success' %>
+    <div class="text-center">
+      <%= f.submit "確認画面へ進む", class: 'btn btn-primary' %>
     </div>
-
   <% end %>
 </div>
