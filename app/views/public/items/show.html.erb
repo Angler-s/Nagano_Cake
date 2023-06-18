@@ -8,7 +8,7 @@
     <h4><%= @item.introduction %></h4><br>
     <h5><b>¥<%= @item.with_tax_price.to_s(:delimited) %></b>(税込）</h5><br>
     <p>数量を選択して下さい。</p>
-    <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+    <%= form_with model: @cart_item, method: :post do |f| %>
       <%= f.select :count, *[1..10], prompt: "個数選択" %>
       <%= f.hidden_field :item_id, :value => @item.id %>
       <%= f.submit 'カートに入れる', class:"btn btn-success ml-3" %>
