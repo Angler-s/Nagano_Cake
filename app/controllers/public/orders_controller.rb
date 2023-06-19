@@ -42,7 +42,7 @@ class Public::OrdersController < ApplicationController
     customer = current_customer
     order = Order.new(order_params)
     order.customer_id = customer.id
-    cart_items = CartItem.where(user_id: customer.id)
+    cart_items = CartItem.where(customer_id: customer.id)
     if order.save
       cart_items.each do |cart_item|
         order_item = OrderItem.new
@@ -53,7 +53,7 @@ class Public::OrdersController < ApplicationController
         order_item.save
       end
       cart_items.destroy_all
-      redirect_to conmplete_orders_path
+      redirect_to complete_orders_path
     else
       render 'new'
     end
