@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about', as: 'about'
 
     resources :items, only: [:index, :show]
+    resources :item_genres, only: [:show]
 
     resources :cart_items, only: [:index, :create, :update, :destroy] do
       collection do
