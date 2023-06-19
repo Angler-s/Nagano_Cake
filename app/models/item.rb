@@ -21,7 +21,7 @@ class Item < ApplicationRecord
   end
 
   def status
-    if self.is_availabled? == true
+    if is_availabled? == true
       "販売中"
     else
       "販売停止中"
@@ -33,3 +33,4 @@ class Item < ApplicationRecord
   end
 
 end
+
