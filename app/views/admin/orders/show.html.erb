@@ -69,6 +69,7 @@
             <%= form_with model:order_items, url: admin_order_item_path(order_item) do |f| %>
           <td><%= f.select :status, OrderItem.statuses_i18n.invert, {}, class: "form-control" %></td>
           <td><%= f.submit "更新", class: "btn btn-success" %></td>
+            <% end %>
         </tr>
       </tbody>
       <% end %>
