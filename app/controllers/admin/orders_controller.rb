@@ -7,7 +7,7 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    @order_items = OrderItems.where(order_id: params[[:id])
+    @order_items = OrderItems.where(order_id: params[:id])
     if @order.update(order_params)
       @order_items.update_all(status: 1) if @order.status == "confirm_payment"
     end
