@@ -17,6 +17,7 @@ class Public::OrdersController < ApplicationController
   def confirm
     customer = current_customer
     @order = Order.new(order_params)
+    @order_new = Order.new
     @cart_items = CartItem.where(customer_id: customer.id)
     send_to = params[:order][:send_to]
     destination = Destination.find(params[:order][:destination_id])
@@ -33,7 +34,7 @@ class Public::OrdersController < ApplicationController
     @cart_items.each do |cart_item|
       @total_price = @total_price + cart_item.subtotal
     end
-    @order.amount_billed = @total_price
+    @order.amount_billed = @total_price + @order.delivery_fee
     @destination = full_address
   end
 
