@@ -6,9 +6,13 @@ class Admin::ItemGenresController < ApplicationController
   end
 
   def create
-    item_genre = ItemGenre.new(item_genre_params)
-    item_genre.save
-    redirect_to admin_item_genres_path
+    @item_genre = ItemGenre.new(item_genre_params)
+    if @item_genre.save
+      redirect_to admin_item_genres_path
+    else
+      @item_genres = ItemGenre.all
+      render :index
+    end
   end
 
   def edit
