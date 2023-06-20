@@ -17,3 +17,9 @@ ja:
         waiting_product:    "製作待ち"
         producting:         "製作中"
         completed_product:  "製作完了"
+
+  time:
+    formats:
+      default:            "%Y/%m/%d"
+      short:              "%m/%d"
+      time:               "%Y/%m/%d %H:%M:%S"
