@@ -1,16 +1,6 @@
 <div class='row mt-3'>
-  <div class='col-md-3'>
-    <div class="">
-      <h4>ジャンル検索</h4>
-      <ul>
-        <li>ケーキ</li>
-        <li>焼き菓子</li>
-        <li>プリン</li>
-        <li>キャンディ</li>
-      </ul>
-    </div>
-  </div>
-  <div class='col-md-8 offset-md-1'>
+  <%= render "public/items/genre_sidebar", genres: @genres %>
+  <div class='col-md-9 offset-md-1 my-5'>
     <div class="">
 		  <p>ようこそ長野ケーキへ</p>
 		  <p>このサイトは、ケーキ販売のECサイトになります。</p>
@@ -20,13 +10,21 @@
 		<div>
 		  <h2>新着商品</h2>
 		  <div>
-		    <p>商品画像</p>
-		    <p>商品名</p>
-		    <p>￥値段</p>
+		  	<% @items.each do |item| %>
+        <div class="d-inline-flex">
+          <div class="items my-3">
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.item_image, size: "190x150", class:"mx-1" %><br>
+            <% end %>
+            <%= item.name %><br>
+            ¥<%= item.with_tax_price.to_s(:delimited) %>
+          </div>
+        </div>
+      <% end %>
 		  </div>
 		</div>
 		<div class="text-right">
-		  <%= link_to "商品一覧 >", items_path, class: 'nav-link'%>
+		  <%= link_to "全ての商品を見る >", items_path, class: 'nav-link'%>
 		</div>
   </div>
 </div>
