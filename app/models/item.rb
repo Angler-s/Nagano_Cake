@@ -11,6 +11,7 @@ class Item < ApplicationRecord
             numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
               format: { with: /\A[0-9]+\z/ }
 
+  scope :recentry_items, -> { order(created_at: :desc).limit(4)}
 
   def get_item_image(width, height)
     unless item_image.attached?
