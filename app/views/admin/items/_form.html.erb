@@ -16,7 +16,7 @@
           <td><%= f.label :name, '商品名' %></td>
           <td><%= f.text_field :name, placeholder: "商品名", class: "col-12" %></td>
         </tr>
-        
+         
       
         <div class="form-group">
           <td><%= f.label :introduction, '商品説明' %></td>
@@ -25,7 +25,7 @@
         
         <tr class="form-group">
           <td><%= f.label :genre_id, 'ジャンル' %></td>
-          <td><%= f.select :genre_id, @genres, { include_blank: "--選択してください--"}, class: "col-12" %></td>
+          <td><%= f.select :genre_id, @genres, { include_blank: "--選択してください--"}, class: "col-12 form-select" %></td>
         </tr>
         
         <tr class="form-group">
