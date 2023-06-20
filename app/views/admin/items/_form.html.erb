@@ -1,45 +1,58 @@
-    <%= form_with model: [:admin, item], local:true do |f| %>
-      <div class="form-group">
-      <%= f.label :image, '商品画像' %>
-      <%= f.file_field :item_image, class: "form-control-file", accept: 'image/*' %>
-      </div>
+<div class="row">
+  <div class="col-5 mx-auto">
+  <%= form_with model: [:admin, item], local:true do |f| %>
+    <table class="table table-borderless">
+      <thead>
+        <th style="width: 30%"></th>
+        <th style="width: 70%"></th>
+      </thead>
+      <tbody>
+        <tr class="form-group">
+          <td><%= f.label :image, '商品画像' %></td>
+          <td><%= f.file_field :item_image, class: "form-control-file", accept: 'image/*' %></td>
+        </tr>
+        
+        <tr class="form-group">
+          <td><%= f.label :name, '商品名' %></td>
+          <td><%= f.text_field :name, placeholder: "商品名", class: "col-12" %></td>
+        </tr>
+        
       
-      <div class="form-group">
-      <%= f.label :name, '商品名' %>
-      <%= f.text_field :name, placeholder: "商品名" %>
-      </div>
-      
-    
-      <div class="form-group">
-      <%= f.label :introduction, '商品説明' %>
-      <%= f.text_area :introduction, placeholder: "ここに説明文を記述します" %>
-      </div>
-      
-      <div class="form-group">
-      <%= f.label :genre_id, 'ジャンル' %>
-      <%# f.hidden_field :item_genre_id, :value => 1%>
-      <%= f.select :genre_id, @genres, { include_blank: "--選択してください--"}, {} %>
-      </div>
-      
-      <div class="form-group">
-      <%= f.label :price, '税抜価格' %>
-      <%= f.text_field :price, placeholder: "1000" %>円
-      </div>
-      
-      <div class="form-group">
-      <%= f.label :is_availabled, '販売ステータス' %>
-        <%= f.radio_button :is_availabled, true, checked: true %>
-        <%= f.label :is_availabled, '販売中', value: true %>
-        <%= f.radio_button :is_availabled, false %>
-        <%= f.label :is_availabled, '販売停止中', value: false %>
-      </div>
-      
-      <div class="form-group">
-        <% if local_assigns[:edit].present? %>
-        <%= f.submit "変更を保存", class: 'btn btn-success' %>
-        <% else %>
-        <%= f.submit "新規登録", class: 'btn btn-success' %>
-        <% end %>
-      </div>
-    
-    <% end %>
+        <div class="form-group">
+          <td><%= f.label :introduction, '商品説明' %></td>
+          <td><%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: "col-12" %></td>
+        </tr>
+        
+        <tr class="form-group">
+          <td><%= f.label :genre_id, 'ジャンル' %></td>
+          <td><%= f.select :genre_id, @genres, { include_blank: "--選択してください--"}, class: "col-12" %></td>
+        </tr>
+        
+        <tr class="form-group">
+        <td><%= f.label :price, '税抜価格' %></td>
+        <td class="pr-0"><%= f.text_field :price, placeholder: "1000", class: "col-11" %>円</td>
+        </tr>
+        
+        <tr class="form-group">
+        <td><%= f.label :is_availabled, '販売ステータス' %></td>
+          <td><%= f.radio_button :is_availabled, true, checked: true %>
+          <%= f.label :is_availabled, '販売中', value: true %>
+          <%= f.radio_button :is_availabled, false %>
+          <%= f.label :is_availabled, '販売停止中', value: false %></td>
+        </tr>
+      </tbody>  
+    </table>
+    <div class="text-center">
+      <% if local_assigns[:edit].present? %>
+        <%= f.submit "変更を保存", class: 'btn btn-success align-center px-4 py-2' %>
+      <% else %>
+        <%= f.submit "新規登録", class: 'btn btn-success align-center px-4 py-2' %>
+      <% end %>
+    </div>
+        
+  <% end %>
+
+  </div>
+</div>  
+
+
