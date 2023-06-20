@@ -7,19 +7,19 @@
           <td>購入者</td>
           <td>
             <%= link_to admin_customer_path(@order) do %>
-              <%= @order.fullname %>
+              <%= @order.name %>
             <% end %>
           </td>
         </tr>
         <tr>
           <td>注文日</td>
-          <td><%= l order.created_at %></td>
+          <td><%= l @order.created_at %></td>
         </tr>
         <tr>
           <td>配送先</td>
           <td>
-            〒<%= @order.address %>
-              <%= @order.destination %><br>
+            〒<%= @order.postal_code %>
+              <%= @order.address %><br>
               <%= @order.name %>
           </td>
         </tr>
@@ -31,7 +31,7 @@
           <td>注文ステータス</td>
             <%= form_with model:@order, url: admin_order_path do |f| %>
           <td>
-            <%= f.select :status, Order.statuses_i18n.invert, {}, class: "form-control" %>
+            <%= f.select :status, Order.statuses_i18n.invert, class: "form-control" %>
             <%= f.submit "更新", class: "btn btn-success" %>
           </td>
             <% end %>
@@ -58,16 +58,16 @@
       <tbody>
         <tr>
             <!--商品名-->
-          <td><%= order_items.item.name %></td>
+          <td><%= order_item.item.name %></td>
             <!--単価(税込み)-->
-          <td><%= order_items.price.to_s(:delimited) %></td>
+          <td><%= order_item.price.to_s(:delimited) %></td>
             <!--数量-->
-          <td><%= order_items.count %></td>
+          <td><%= order_item.count %></td>
             <!--小計-->
-          <td><%= (order_items.price + order_items.count).to_s(:delimited) %></td>
+          <td><%= (order_item.price * order_item.count).to_s(:delimited) %></td>
             <!--制作ステータス-->
-            <%= form_with model:order_items, url: admin_order_item_path(order_item) do |f| %>
-          <td><%= f.select :status, OrderItem.statuses_i18n.invert, {}, class: "form-control" %></td>
+            <%= form_with model:order_item, url: admin_order_item_path(order_item) do |f| %>
+          <td><%= f.select :status, OrderItem.statuses_i18n.invert, class: "form-control" %></td>
           <td><%= f.submit "更新", class: "btn btn-success" %></td>
             <% end %>
         </tr>
