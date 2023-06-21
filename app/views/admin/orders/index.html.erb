@@ -1,0 +1,37 @@
+<div class="row d-inline">
+  <div class="offset-2 pl-3">
+    <h5 class="bg-light col-4 text-center px-0"><%= @customer.full_name %>さんの注文履歴一覧</h3>
+  </div>
+  <div class="col-md-8 mx-auto">
+    <table class="table table-hover border-bottom">
+      <thead class="bg-light">
+        <tr class="text-center">
+          <th>購入日時</th>
+          <th>注文個数</th>
+          <th>注文ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr class="text-center">
+              <!--購入日時-->
+            <td>
+              <%= link_to admin_order_path(order) do %>
+                <%= l order.created_at,format: :time %>
+              <% end %>
+            </td>
+              <!--注文個数-->
+            <td class="align-middle"><%= order.order_items.sum(:count) %></td>
+              <!--注文ステータス-->
+            <td class="align-middle"><%= order.status_i18n %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="mx-auto">
+        <%= paginate @orders %>
+      </div>
+    </div>
+  </div>
+</div>
