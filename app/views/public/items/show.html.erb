@@ -9,7 +9,6 @@
     <h5><b>¥<%= @item.with_tax_price.to_s(:delimited) %></b>(税込）</h5><br>
 
     <% if current_customer %>
-      <%= flash[:notice] %>
       <%= form_with model: @cart_item, method: :post do |f| %>
         <%= f.select :count, *[1..10], prompt: "個数選択" %>
         <%= f.hidden_field :item_id, :value => @item.id %>
