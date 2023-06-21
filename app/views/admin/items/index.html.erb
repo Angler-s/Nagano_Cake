@@ -1,3 +1,23 @@
+<style>
+  .new {
+    color: gray;
+    border-radius: 50%;
+    width: 50px;
+    height: 30px;
+    padding: 3px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+
+  }
+
+</style>
+
+
+<%= form_with url:admin_searchs_path do |f| %>
+  <%= f.text_field :name_cont %>
+  <%= f.submit '検索' %>
+<% end %>
+
+<h3>商品一覧</h3>
 
 
 <div class="row">
