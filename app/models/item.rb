@@ -33,5 +33,9 @@ class Item < ApplicationRecord
     (price * 1.1).floor
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["name","introduction"]
+  end
+
 end
 
