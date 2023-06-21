@@ -1,6 +1,6 @@
-
-
 <h1>検索結果</h1>
+
+<% if @items.present? %>
 
 <table>
   <% @items.each do |item| %>
@@ -21,3 +21,24 @@
     </tr>
   <% end %>
 </table>
+
+<!--カスタマーも検索できるようにする場合に使用-->
+
+<% elsif @customers.present? %>
+
+  <% @customers.each do |customer| %>
+  <table>
+    <tr>
+      <td><%= link_to customer.full_name, admin_customers_path(customer) %></td>
+      <td><%= customer.phone_number %></td>
+
+    </tr>
+  </table>
+  <% end %>
+
+<% else %>
+
+検索結果はありません。
+  
+<% end %>
+  
