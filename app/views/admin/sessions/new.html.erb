@@ -1,14 +1,15 @@
 <h2>管理者ログイン</h2>
+<%= render "admin/shared/error_messages", resource: resource %>
 <%= form_with model: @admin, url: admin_session_path do |f| %>
   <table class="table table-borderless mt-3">
     <tr>
-      <td class="text-center">メールアドレス</td>
+      <td class="text-center"><%= f.label :email, 'メールアドレス' %></td>
       <td class="form-group">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "sample@example.com" %>
       </td>
     </tr>
     <tr>
-      <td class="text-center">パスワード</td>
+      <td class="text-center"><%= f.label :password, 'パスワード' %></td>
       <td class="form-group">
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
       </td>
