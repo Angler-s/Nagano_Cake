@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-6">
     <h4 class="mt-5">ジャンル一覧・追加</h4><br>
+    <%= render 'layouts/error_messages', obj: @item_genre %>
       <div class="form">
         <%= form_with model: [:admin, @item_genre] do |f| %>
           <%= f.label :name, "ジャンル名", class:"mr-5" %>
