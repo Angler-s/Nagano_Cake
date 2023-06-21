@@ -14,7 +14,7 @@ import "bootstrap";
 import "../stylesheets/application";
 import "../stylesheets/logo_icon.css";
 import "../stylesheets/public_homes.css";
-// import "../stylesheets/admin_items.css";
+import "../stylesheets/admin_items.css";
 
 Rails.start()
 Turbolinks.start()
