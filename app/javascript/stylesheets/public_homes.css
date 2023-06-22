@@ -6,6 +6,10 @@ header, footer {
   height: 110px;
 }
 
+input:focus {
+  outline: none;
+}
+
 .top-intro-box {
   background-image: url("../../assets/images/nagano_bg_1.png");
   background-position: center;
