@@ -10,7 +10,7 @@ class Admin::ItemsController < ApplicationController
     @genres = ItemGenre.pluck(:name, :id)
     @item = Item.new(item_params)
     if @item.save
-      redirect_to admin_item_path(item)
+      redirect_to admin_item_path(@item)
     else
       @genres = ItemGenre.pluck(:name, :id)
       render 'new'
@@ -23,7 +23,7 @@ class Admin::ItemsController < ApplicationController
 
   def index
     @items = Item.page(params[:page]).per(10)
-    @q = Item.ransack(params[:q])
+    
   end
 
   def edit
@@ -34,7 +34,7 @@ class Admin::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to admin_item_path(item)
+      redirect_to admin_item_path(@item)
     else 
       @genres = ItemGenre.pluck(:name, :id)
       render 'edit'
