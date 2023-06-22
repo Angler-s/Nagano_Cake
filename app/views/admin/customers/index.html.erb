@@ -1,31 +1,41 @@
-<h2>会員一覧</h2>
-<table class="table table-borderless mt-3">
-  <thead>
-    <tr>
-      <th>会員ID</th>
-      <th>氏名</th>
-      <th>メールアドレス</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-        <td><%= customer.id %></td>
-        <td>
-          <%= link_to admin_customer_path(customer), class: 'nav-link' do %>
-            <%= customer.full_name %>
-          <% end %>
-        </td>
-        <td><%= customer.email %></td>
-        <td>
-          <% if customer.is_deleted == false %>
-            有効
-          <% else %>
-            退会
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h3>会員一覧</h3>
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <table class="table table-sm table-hover borderless border-bottom">
+      <thead class="bg-light text-center">
+        <tr>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+          <tr class="text-center">
+            <td class="align-middle"><%= customer.id %></td>
+            <td>
+              <%= link_to admin_customer_path(customer), class: 'nav-link' do %>
+                <%= customer.full_name %>
+              <% end %>
+            </td>
+            <td class="align-middle"><%= customer.email %></td>
+            <td class="align-middle">
+              <% if customer.is_deleted == false %>
+                <p class="text-success font-weight-bold align-middle mb-0">有効</p>
+              <% else %>
+                <p class="text-secondary font-weight-bold align-middle mb-0"></p>退会</p>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <div class="row">
+      <div class="mx-auto mb-5">
+        <%= paginate @customers, theme: 'bootstrap-5', class: "col-md-9" %>
+      </div>
+    </div>
+  </div>
+</div>
