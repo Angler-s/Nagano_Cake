@@ -1,10 +1,12 @@
 <div class="row">
 
-  <%= render "genre_sidebar", genres: @genres %>
+  <%= render "public/items/genre_sidebar", genres: @genres %>
 
   <div class="col-md-9">
-    <h2 class="my-2"><b>商品一覧</b>（全<%= @item_all.count %>件）</h2>
-    <%= render 'search_form', q: @q %>
+    <div class="d-flex">
+      <h2 class="my-2 mr-auto"><b>検索一覧</b>(全<%= @items.count %>件)</h2>
+      <%= link_to '一覧へ戻る', items_path, class:"mt-4" %>
+    </div>
       <% @items.each do |item| %>
         <div class="d-inline-flex">
           <div class="items my-3">
