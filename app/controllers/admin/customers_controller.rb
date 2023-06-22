@@ -22,7 +22,7 @@ class Admin::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
-      redirect_to admin_customer_path(@customer), notice: "You have updated user successfully."
+      redirect_to admin_customer_path(@customer), notice: "情報の更新に成功しました。"
     else
       render "edit"
     end
