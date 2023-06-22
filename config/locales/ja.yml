@@ -23,3 +23,49 @@ ja:
       default:            "%Y/%m/%d"
       short:              "%m/%d"
       time:               "%Y/%m/%d %H:%M:%S"
+
+  activerecord:
+    attributes:
+      item_genre:
+        name:             "ジャンル名"
+
+    errors:
+      messages:
+        blank:            "を入力して下さい。"
+
+
+  activerecord:
+    attributes:
+      customer:
+        customer:         '会員情報'
+        last_name:        '姓'
+        last_name_kana:   'セイ'
+        first_name:       '名'
+        first_name_kana:  'メイ'
+        email:            'メールアドレス'
+        postal_code:      '郵便番号'
+        address:          '住所'
+        phone_number:     '電話番号'
+
+    errors:
+      messages:
+        blank:            "を入力して下さい。"
+        invalid:          "は有効なものを入力して下さい。"
+        not_saved:        "正しく入力して下さい。"
+
+  activerecord:
+    attributes:
+      item:
+        name:             "商品名"
+        item:             "商品"
+        item_genre:       "商品ジャンル"
+        introduction:     "商品説明"
+        price:            "価格"
+
+    errors:
+      messages:
+        blank:            "を入力して下さい。"
+        invalid:          "は不正な値です。"
+        not_saved:        "正しく入力して下さい。"
+        not_a_number:     "は数字を入力して下さい。"
+        required:         "を入力してください。"
