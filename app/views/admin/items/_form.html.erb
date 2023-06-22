@@ -1,5 +1,6 @@
 <div class="row">
   <div class="col-5 mx-auto">
+  <%= render 'layouts/error_messages', obj: item %>
   <%= form_with model: [:admin, item], local:true do |f| %>
     <table class="table table-borderless">
       <thead>
