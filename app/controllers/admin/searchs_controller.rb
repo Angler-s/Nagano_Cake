@@ -13,4 +13,5 @@ class Admin::SearchsController < ApplicationController
       @items = Item.ransack(name_cont: @q).result
       @customers = Customer.ransack(last_name_cont: @q).result
     end
+
 end

@@ -1,8 +1,8 @@
 <div class="row d-inline">
-  <div class="offset-1 pl-3">
+  <div class="offset-2 pl-3">
     <h5 class="bg-light col-2 text-center px-0">注文履歴一覧</h3>
   </div>
-  <div class="col-md-10 mx-auto">
+  <div class="col-md-8 mx-auto">
     <table class="table table-hover border-bottom">
       <thead class="bg-light">
         <tr class="text-center">
@@ -33,7 +33,7 @@
     </table>
     <div class="row">
       <div class="mx-auto">
-        <%= paginate @orders %>
+        <%= paginate @orders, theme: 'bootstrap-5' %>
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@ class Public::OrdersController < ApplicationController
 
   def index
     @customer = current_customer
-    @orders = @customer.orders
+    @orders = @customer.orders.order(created_at: :desc).page(params[:page]).per(8)
   end
 
   def show
@@ -64,6 +64,8 @@ class Public::OrdersController < ApplicationController
       cart_items.destroy_all
       redirect_to complete_orders_path
     else
+      @order = Order.new
+      @customer = current_customer
       render 'new'
     end
   end

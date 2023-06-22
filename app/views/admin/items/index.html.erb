@@ -38,9 +38,10 @@
         <% end %>
       </tbody>
     </table>
-
-    <div>
-      <%= paginate @items %>
+    <div class="row" >
+      <div class="mx-auto">
+        <%= paginate @items, theme: 'bootstrap-5', class: "col-md-9"  %>
+      </div>
     </div>
   </div>
 </div>
