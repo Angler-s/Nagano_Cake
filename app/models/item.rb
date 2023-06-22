@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   validates :genre_id, presence: true
   validates :name, presence: true
   validates :introduction, presence: true
+  validates :item_image, presence: true
   validates :price, presence: true,
             numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
               format: { with: /\A[0-9]+\z/ }
@@ -14,10 +15,10 @@ class Item < ApplicationRecord
   scope :recentry_items, -> { order(created_at: :desc).limit(4)}
 
   def get_item_image(width, height)
-    unless item_image.attached?
-      file_path = Rails.root.join('app/assets/images/no_image.png')
-      item_image.attach(io: File.open(file_path), filename: 'default-image-jpg', content_type: 'image/jpeg')
-    end
+    # unless item_image.attached?
+    #   file_path = Rails.root.join('app/assets/images/no_image.png')
+    #   item_image.attach(io: File.open(file_path), filename: 'default-image-jpg', content_type: 'image/jpeg')
+    # end
     item_image.variant(resize_to_limit: [width, height]).processed
   end
 
