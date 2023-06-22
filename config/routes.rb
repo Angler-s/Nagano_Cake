@@ -50,13 +50,11 @@ Rails.application.routes.draw do
     resources :items, only: [:new,:index,:show,:edit,:create,:update]
     resources :item_genres, only: [:index,:edit,:create,:update]
     resources :customers, only: [:index,:show,:edit,:update]do
-        get 'index' => 'orders#index'
-    end
-    resources :orders, only: [:show, :update] do
       member do
-        get 'index'
+        get 'order_index'
       end
     end
+    resources :orders, only: [:show, :update]
     resources :order_items, only: [:update]
     resources :searchs, only: [:index]
   end
