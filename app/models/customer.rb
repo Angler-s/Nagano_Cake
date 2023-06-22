@@ -16,4 +16,8 @@ class Customer < ApplicationRecord
     super && (is_deleted == false)
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["last_name","first_name", "phone_number"]
+  end
+
 end

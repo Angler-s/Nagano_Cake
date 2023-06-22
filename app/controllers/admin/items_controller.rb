@@ -23,6 +23,7 @@ class Admin::ItemsController < ApplicationController
 
   def index
     @items = Item.page(params[:page]).per(10)
+    @q = Item.ransack(params[:q])
   end
 
   def edit
