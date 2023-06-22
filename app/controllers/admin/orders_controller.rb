@@ -22,4 +22,5 @@ class Admin::OrdersController < ApplicationController
     params.require(:order).permit(:status, :customer_id)
   end
 
+
 end
