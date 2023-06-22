@@ -60,7 +60,7 @@
           <b class="text-secondary">退会</b>
         <% end %>
       </td>
-      <td>注文履歴一覧を見る</td>
+      <td><%= link_to "注文履歴一覧を見る", order_index_admin_customer_path(customer.id) %></td>
     </tr>
   </table>
   <% end %>
