@@ -1,4 +1,10 @@
 class Admin::OrdersController < ApplicationController
+  before_action :authenticate_admin!
+
+  def index
+    @customer = Customer.find(params[:id])
+    @orders = Order.where(customer_id: @customer.id).order(created_at: :desc).page(params[:page]).per(10)
+  end
 
   def show
     @order = Order.find(params[:id])
@@ -18,7 +24,7 @@ class Admin::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:status)
+    params.require(:order).permit(:status, :customer_id)
   end
 
 end
