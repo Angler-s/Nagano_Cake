@@ -1,5 +1,5 @@
 class Admin::SearchsController < ApplicationController
-  def index
+  # def index
 
 
 # Itemのみ検索の場合
@@ -17,5 +17,5 @@ class Admin::SearchsController < ApplicationController
 
     end
     
-  end
+
 end
