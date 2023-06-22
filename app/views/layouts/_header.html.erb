@@ -43,8 +43,12 @@
                   <li><%= link_to "管理者ログイン（デバッグ用）", new_admin_session_path, class: 'nav-link text-danger ml-3' %></li>
                 <% end %>
               </div>
-              <div class="float-right">
-                <p>サーチ欄</p>
+              <div class="float-right mt-2">
+                <% if admin_signed_in? %>
+                  <%= render 'admin/searchs/search_form' %>
+                <% else %>
+                  <%= render 'public/items/search_form', q: @q %>
+                <% end %>
               </div>
             </div>
           </div>

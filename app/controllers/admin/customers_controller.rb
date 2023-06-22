@@ -6,7 +6,13 @@ class Admin::CustomersController < ApplicationController
   end
 
   def index
-    @customers = Customer.all
+    @customers = Customer.page(params[:page]).per(10)
+    @q = Item.ransack(params[:q])
+  end
+
+  def order_index
+    @customer = Customer.find(params[:id])
+    @orders = Order.where(customer_id: @customer.id).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def edit
