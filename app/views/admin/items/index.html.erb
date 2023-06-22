@@ -1,17 +1,16 @@
 <style>
+  .new {
+    color: gray;
+    border: solid;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 3px 10px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
 
+  }
 
 </style>
-
-<!--ransackのヘルパー-->
-<%# search_form_for @q, url: admin_searchs_path do |f| %>
-  <%# f.search_field :name_cont %>
-  
-<%= form_with url:admin_searchs_path, method: :get do |f| %>
-  <%= f.text_field :q %>
-  <%= f.submit '検索' %>
-<% end %>
-
 <h3>商品一覧</h3>
 
 
@@ -33,7 +32,7 @@
           <tr>
             <td><%= item.id %></td>
             <td><%=link_to item.name, admin_item_path(item) %></td>
-            <td><%= item.price.to_s(:delimited) %></td>
+            <td>¥<%= item.price.to_s(:delimited) %></td>
             <td><%= item.item_genre.name %></td>
 
             <td>
