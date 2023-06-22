@@ -19,15 +19,25 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @cart_items = CartItem.where(customer_id: customer.id)
     send_to = params[:order][:send_to]
-    destination = Destination.find(params[:order][:destination_id])
     if send_to == "customer_address"
       @order.postal_code = customer.postal_code
       @order.address = customer.address
       @order.name = customer.full_name
     elsif send_to == "recorded_destination"
-      @order.postal_code = destination.postal_code
-      @order.address = destination.address
-      @order.name = destination.name
+      if params[:order][:destination_id].present?
+        destination = Destination.find(params[:order][:destination_id])
+        @order.postal_code = destination.postal_code
+        @order.address = destination.address
+        @order.name = destination.name
+      else
+        flash[:notice] = "登録済み住所が存在しません。"
+        redirect_to new_order_path
+      end
+    elsif send_to == "new_destination"
+      if @order.postal_code.blank? || @order.address.blank? || @order.name.blank?
+        flash[:notice] = "空欄となっている個所があります。正しい情報を入力してください。"
+        redirect_to new_order_path
+      end
     end
     @total_price = 0
     @cart_items.each do |cart_item|
