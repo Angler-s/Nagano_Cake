@@ -1,15 +1,15 @@
 <h2>ログイン</h2>
-<h5>会員の方はこちらからログイン</h5>
+<h5 class="ml-3">会員の方はこちらからログイン</h5>
 <%= form_with model: @customer, url: customer_session_path do |f| %>
   <table class="table table-borderless mt-3">
     <tr>
-      <td class="text-center">メールアドレス</td>
+      <td class="text-center"><%= f.label :email, 'メールアドレス' %></td>
       <td class="form-group">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "sample@example.com" %>
       </td>
     </tr>
     <tr>
-      <td class="text-center">パスワード</td>
+      <td class="text-center"><%= f.label :password, 'パスワード' %></td>
       <td class="form-group">
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
       </td>
@@ -21,3 +21,10 @@
     </tr>
   </table>
 <% end %>
+<div>
+  <h2>既に登録済みの方</h2>
+  <div class="ml-5">
+    <%= link_to "こちら", new_customer_registration_path %>
+    <span>　から新規登録を行ってください。</span>
+  </div>
+</div>

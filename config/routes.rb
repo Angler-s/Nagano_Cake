@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get '/about' => 'homes#about', as: 'about'
-    
+
     resources :items, only: [:index, :show] do
       collection do
           get '/search' => 'items#search'
@@ -47,10 +47,16 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/' => 'homes#top'
 
-    resources :items, only: [:new,:index,:show,:edit,:create,:update] 
+    resources :items, only: [:new,:index,:show,:edit,:create,:update]
     resources :item_genres, only: [:index,:edit,:create,:update]
-    resources :customers, only: [:index,:show,:edit,:update]
-    resources :orders, only: [:show, :update]
+    resources :customers, only: [:index,:show,:edit,:update]do
+        get 'index' => 'orders#index'
+    end
+    resources :orders, only: [:show, :update] do
+      member do
+        get 'index'
+      end
+    end
     resources :order_items, only: [:update]
     resources :searchs, only: [:index]
   end
