@@ -4,8 +4,8 @@
   <%= form_with model: [:admin, item], local:true do |f| %>
     <table class="table table-borderless">
       <thead>
-        <th style="width: 30%"></th>
-        <th style="width: 70%"></th>
+        <th style="width: 35%"></th>
+        <th style="width: 65%"></th>
       </thead>
       <tbody>
         <tr class="form-group">
@@ -30,8 +30,8 @@
         </tr>
         
         <tr class="form-group">
-        <td><%= f.label :price, '税抜価格' %></td>
-        <td>¥<%= f.text_field :price, placeholder: "1000", class: "col-11" %></td>
+        <td><%= f.label :price, '税抜価格(円)' %></td>
+        <td>¥<%= f.text_field :price, placeholder: "1000", class: "col-12" %></td>
         </tr>
         
         <tr class="form-group">
