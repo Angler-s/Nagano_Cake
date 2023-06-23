@@ -35,7 +35,7 @@
             </td>
           </tr>
         </table>
-      <div>
+      </div>
         <%= f.radio_button :send_to, 'new_destination' %>
         <%= f.label :select_destination_new_destination, '新しいお届け先' %>
         <table class="table table-borderless ml-3">
@@ -53,9 +53,8 @@
           </tr>
         </table>
       </div>
-    </div>
-    <div class="text-center">
-      <%= f.submit "確認画面へ進む", class: 'btn btn-primary' %>
+    <div class="text-center mb-5">
+      <%= f.submit "確認画面へ進む", class: 'btn btn-primary mb-5' %>
     </div>
   <% end %>
 </div>
