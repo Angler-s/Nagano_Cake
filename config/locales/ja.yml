@@ -24,15 +24,6 @@ ja:
       short:              "%m/%d"
       time:               "%Y/%m/%d %H:%M:%S"
 
-  activerecord:
-    attributes:
-      item_genre:
-        name:             "ジャンル名"
-
-    errors:
-      messages:
-        blank:            "を入力して下さい。"
-
 
   activerecord:
     attributes:
@@ -47,20 +38,15 @@ ja:
         address:          '住所'
         phone_number:     '電話番号'
 
-    errors:
-      messages:
-        blank:            "を入力して下さい。"
-        invalid:          "は有効なものを入力して下さい。"
-        not_saved:        "正しく入力して下さい。"
-
-  activerecord:
-    attributes:
       item:
         name:             "商品名"
         item:             "商品"
         item_genre:       "商品ジャンル"
         introduction:     "商品説明"
         price:            "価格"
+
+      item_genre:
+        name:             "ジャンル名"
 
     errors:
       messages:
@@ -69,3 +55,5 @@ ja:
         not_saved:        "正しく入力して下さい。"
         not_a_number:     "は数字を入力して下さい。"
         required:         "を入力してください。"
+        greater_than_or_equal_to: "は1以上の値を入力してください"
+        less_than_or_equal_to: "は10,000,000以下の値を入力してください"

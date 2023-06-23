@@ -7,17 +7,25 @@ class Public::CartItemsController < ApplicationController
 
   def create
     customer = current_customer
-    item = Item.find(params[:cart_item][:item_id])
+    @item = Item.find(params[:cart_item][:item_id])
     cart_item_new = customer.cart_items.new(cart_item_params)
-    if CartItem.find_by(item_id:item.id, customer_id:customer ).present?
-      cart_item = CartItem.find_by(item_id:item, customer_id:customer )
+    if params[:cart_item][:count].empty?
+      flash[:notice] = "個数を選択してください"
+      @genres = ItemGenre.all 
+      @cart_item = CartItem.new
+      redirect_to item_path(@item)
+    elsif CartItem.find_by(item_id:@item.id, customer_id:customer ).present?
+      cart_item = CartItem.find_by(item_id:@item, customer_id:customer )
       cart_item.count += params[:cart_item][:count].to_i
       cart_item.save
+      flash[:notice] = "カートに追加しました"
       redirect_to cart_items_path
     else cart_item_new.save
       redirect_to cart_items_path
+      flash[:notice] = "カートに追加しました"
     end
   end
+   
 
   def update
     cart_item = CartItem.find(params[:id])

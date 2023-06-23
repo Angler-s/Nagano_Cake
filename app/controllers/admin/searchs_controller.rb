@@ -10,8 +10,8 @@ class Admin::SearchsController < ApplicationController
 
     def index
       @q = params[:q]
-      @items = Item.ransack(name_cont: @q).result
-      @customers = Customer.ransack(last_name_cont: @q).result
+      @items = Item.ransack(name_cont: @q).result.page(params[:page]).per(10)
+      @customers = Customer.ransack(last_name_cont: @q).result.page(params[:page]).per(10)
     end
 
 end
