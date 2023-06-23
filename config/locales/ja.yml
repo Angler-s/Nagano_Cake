@@ -44,8 +44,8 @@ ja:
         item_genre:       "商品ジャンル"
         introduction:     "商品説明"
         price:            "価格"
-      
-      item_genre:         
+
+      item_genre:
         name:             "ジャンル名"
 
     errors:
@@ -55,3 +55,5 @@ ja:
         not_saved:        "正しく入力して下さい。"
         not_a_number:     "は数字を入力して下さい。"
         required:         "を入力してください。"
+        greater_than_or_equal_to: "は1以上の値を入力してください"
+        less_than_or_equal_to: "は10,000,000以下の値を入力してください"
