@@ -1,6 +1,6 @@
 <h2><%= @customer.full_name %>さんの会員情報編集</h2>
 <%= form_with model: @customer, url: admin_customer_path do |f| %>
-  <table class="table table-borderless mt-3">
+  <table class="table table-borderless mt-3 mb-5">
     <tr>
       <td>会員ID</td>
       <td><%= @customer.id %></td>
