@@ -4,13 +4,12 @@ class Item < ApplicationRecord
   has_many :cart_items
   has_many :order_items
 
-  validates :genre_id, presence: true
   validates :name, presence: true
   validates :introduction, presence: true
   validates :item_image, presence: true
   validates :price, presence: true,
-            numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 },
-              format: { with: /\A[0-9]+\z/ }
+            numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 9_999_999 }
+
 
   scope :recentry_items, -> { order(created_at: :desc).limit(4)}
 
