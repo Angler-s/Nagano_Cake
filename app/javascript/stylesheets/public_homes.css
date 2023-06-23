@@ -89,6 +89,19 @@ input:focus {
   border-bottom: none;
 }
 
+.page-item.active .page-link {
+  background-color: rgb(255, 180, 210);
+  border-color: rgb(255, 180, 210);
+}
+
+.page-link {
+  color: rgb(255, 180, 210);
+}
+
+.page-item a:hover {
+  color: rgb(255, 180, 210);
+}
+
 /*.genre_items_box {*/
 
 /*}*/

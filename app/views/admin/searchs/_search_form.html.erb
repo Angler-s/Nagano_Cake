@@ -1,6 +1,6 @@
 <div class="search_form" >
 <%= form_with url:admin_searchs_path, method: :get do |f| %>
-  <%= f.text_field :q, placeholder: "商品名or名字", class: "align-middle"  %>
+  <%= f.text_field :q, placeholder: "商品名or姓名", class: "align-middle"  %>
   <%= button_tag type: "submit", class:"btn btn-outline btn-sm glass" do%><div class="text-info"><i class="fa-solid fa-magnifying-glass"></i></div><% end %>
 <% end %>
 </div>
