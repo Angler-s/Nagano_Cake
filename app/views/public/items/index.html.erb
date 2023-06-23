@@ -6,7 +6,7 @@
     <h2 class="my-2"><b>商品一覧</b>（全<%= @item_all.count %>件）</h2>
       <% @items.each do |item| %>
         <div class="d-inline-flex">
-          <div class="items my-3">
+          <div class="items my-3 text-truncate" style="width: 198px;">
             <%= link_to item_path(item.id) do %>
               <%= image_tag item.get_item_image(190, 160), class:"mx-1" %><br>
             <% end %>
