@@ -1,4 +1,7 @@
-<div class="row">
-  <h3>商品編集</h3>
+<div class="row d-inline">
+  <div class="offset-3">
+    <h5 class="bg-light col-2 text-center px-0">商品編集</h5>
+  </div>
+
+  <%= render 'form', item: @item, :edit => true %>
 </div>
-<%= render 'form', item: @item, :edit => true %>
