@@ -12,28 +12,28 @@
           <td><%= f.label :image, '商品画像' %></td>
           <td><%= f.file_field :item_image, class: "form-control-file", accept: 'image/*' %></td>
         </tr>
-        
+
         <tr class="form-group">
           <td><%= f.label :name, '商品名' %></td>
           <td><%= f.text_field :name, placeholder: "商品名", class: "col-12" %></td>
         </tr>
-         
-      
+
+
         <div class="form-group">
           <td><%= f.label :introduction, '商品説明' %></td>
           <td><%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: "col-12" %></td>
         </tr>
-        
+
         <tr class="form-group">
           <td><%= f.label :genre_id, 'ジャンル' %></td>
           <td><%= f.select :genre_id, @genres, { include_blank: "--選択してください--"}, class: "col-12 form-select" %></td>
         </tr>
-        
+
         <tr class="form-group">
         <td><%= f.label :price, '税抜価格(円)' %></td>
         <td><%= f.text_field :price, placeholder: "1000", class: "col-12" %></td>
         </tr>
-        
+
         <tr class="form-group">
         <td><%= f.label :is_availabled, '販売ステータス' %></td>
           <td><%= f.radio_button :is_availabled, true, checked: true %>
@@ -41,19 +41,19 @@
           <%= f.radio_button :is_availabled, false %>
           <%= f.label :is_availabled, '販売停止中', value: false %></td>
         </tr>
-      </tbody>  
+      </tbody>
     </table>
-    <div class="text-center">
+    <div class="text-center mb-5">
       <% if local_assigns[:edit].present? %>
         <%= f.submit "変更を保存", class: 'btn btn-success align-center px-4 py-2' %>
       <% else %>
         <%= f.submit "新規登録", class: 'btn btn-success align-center px-4 py-2' %>
       <% end %>
     </div>
-        
+
   <% end %>
 
   </div>
- 
+
 
 
