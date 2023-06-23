@@ -11,7 +11,7 @@
         <div class="d-inline-flex">
           <div class="items my-3 text-truncate" style="width: 198px;">
             <%= link_to item_path(item.id) do %>
-              <%= image_tag item.item_image, size: "190x150", class:"mx-1" %><br>
+              <%= image_tag item.get_item_image(190, 160), class:"mx-1" %><br>
             <% end %>
             <%= item.name %><br>
             ¥<%= item.with_tax_price.to_s(:delimited) %>
