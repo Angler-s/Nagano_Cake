@@ -9,7 +9,7 @@
     </div>
       <% @items.each do |item| %>
         <div class="d-inline-flex">
-          <div class="items my-3">
+          <div class="items my-3 text-truncate" style="width: 198px;">
             <%= link_to item_path(item.id) do %>
               <%= image_tag item.item_image, size: "190x150", class:"mx-1" %><br>
             <% end %>
@@ -18,6 +18,10 @@
           </div>
         </div>
       <% end %>
-    <%= paginate @items %>
+      <div class="row">
+        <div class="mx-auto">
+          <%= paginate @items, theme: 'bootstrap-5', class: "col-md-9" %>
+        </div>
+      </div>
   </div>
 </div>
