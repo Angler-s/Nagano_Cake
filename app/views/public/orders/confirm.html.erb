@@ -53,7 +53,7 @@
     <%= @order.name %>
 </div>
 
-<div class="row pt-5">
+<div class="row pt-5 mb-5">
   <div class="mx-auto">
     <%= form_with model: @order do |f| %>
       <%= f.hidden_field :customer_id %>
@@ -63,7 +63,7 @@
       <%= f.hidden_field :delivery_fee %>
       <%= f.hidden_field :payment %>
       <%= f.hidden_field :amount_billed %>
-      <%= f.submit "注文を確定する", class: 'btn btn-success' %>
+      <%= f.submit "注文を確定する", class: 'btn btn-success mb-5' %>
     <% end %>
   </div>
 </div>
