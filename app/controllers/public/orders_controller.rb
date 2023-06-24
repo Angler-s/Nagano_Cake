@@ -12,6 +12,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    if params[:id].to_s == "confirm"
+      redirect_to new_order_path
+      return
+    end
     @order = Order.find(params[:id])
     @order_items = @order.order_items.all
   end
