@@ -9,12 +9,15 @@
     <h5><%= @item.introduction %></h5><br>
     <h5><b>￥<%= @item.with_tax_price.to_s(:delimited) %></b>(税込）</h5><br>
 
-    <% if current_customer %>
+    <% if current_customer && @item.status == "販売中" %>
+      <b class="text-success"><%= @item.status %></b>
       <%= form_with model: @cart_item, method: :post do |f| %>
         <%= f.select :count, *[1..10], prompt: "個数選択" %>
         <%= f.hidden_field :item_id, :value => @item.id %>
         <%= f.submit 'カートに入れる', class:"btn btn-success ml-3" %>
       <% end %>
+    <% elsif @item.status == "販売停止中" %>
+      <b class="text-secondary"><%= @item.status %></b>
     <% else %>
       <p>商品購入には会員登録が必要です。</p>
       <%= link_to '新規登録はこちら', new_customer_registration_path, class:"text-info my-3" %>
