@@ -3,7 +3,7 @@
     <div class="col-md-11 mx-auto">
       <div class="d-flex my-4">
         <h4 class="mr-auto bg-light">ショッピングカート</h4>
-        <%= link_to 'カートを空にする', destroy_all_cart_items_path, method: :delete, class:"btn btn-danger mr-2" %>
+        <%= link_to 'カートを空にする', destroy_all_cart_items_path, method: :delete, data: { confirm: "[確認]すべての商品が削除されます。本当によろしいですか？"}, class:"btn btn-danger mr-2" %>
       </div>
 
       <table class="table table-bordered">

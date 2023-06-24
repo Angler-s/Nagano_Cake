@@ -13,8 +13,12 @@
   <body>
     <%= render 'layouts/header' %>
     <main>
-      <p id="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <div class="ml-5 mt-3 text-info">
+        <p id="notice"><%= notice %></p>
+      </div>
+      <div class="ml-5 mt-3 text-danger">
+        <p class="alert"><%= alert %></p>
+      </div>
       <div class="container">
         <%= yield %>
       </div>
