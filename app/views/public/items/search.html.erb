@@ -15,6 +15,13 @@
             <% end %>
             <%= item.name %><br>
             ¥<%= item.with_tax_price.to_s(:delimited) %>
+            <div class="">
+              <% if item.status == "販売中" %>
+                <b class="text-success"><%= item.status %></b>
+              <% else %>
+                <b class="text-secondary"><%= item.status %></b>
+              <% end %>
+            </div>
           </div>
         </div>
       <% end %>
