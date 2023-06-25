@@ -44,6 +44,7 @@ ja:
         item_genre:       "商品ジャンル"
         introduction:     "商品説明"
         price:            "価格"
+        item_image:       "商品画像"
 
       item_genre:
         name:             "ジャンル名"
