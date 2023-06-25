@@ -1,0 +1,60 @@
+<h3 class="ml-3">注文情報入力</h3>
+
+<div>
+  <%= form_with model: @order, url: confirm_orders_path do |f| %>
+    <h4>支払方法</h4>
+    <div class="ml-5">
+      <div>
+        <%= f.radio_button :payment, 'credit_card', checked: true %>
+        <%= f.label :payment_credit_card, 'クレジットカード' %>
+      </div>
+      <div>
+        <%= f.radio_button :payment, 'transfer' %>
+        <%= f.label :payment_transfer, '銀行振込' %>
+      </div>
+    </div>
+
+    <h4>お届け先</h4>
+    <div class="ml-5">
+      <div>
+        <%= f.radio_button :send_to, 'customer_address', checked: true %>
+        <%= f.label :select_destination_customer_address, 'ご自身の住所' %>
+        <div class="ml-4">
+          <%= @customer.postal_code + @customer.address %><br>
+          <%= @customer.full_name %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.radio_button :send_to, 'recorded_destination' %>
+        <%= f.label :select_destination_recorded_destination, '登録済み住所から選択' %>
+        <table class="table table-borderless ml-3">
+          <tr>
+            <td>
+              <%= f.select :destination_id, options_from_collection_for_select(@customer.destinations, :id, :address_display), {}, class: "form-control" %>
+            </td>
+          </tr>
+        </table>
+      </div>
+        <%= f.radio_button :send_to, 'new_destination' %>
+        <%= f.label :select_destination_new_destination, '新しいお届け先' %>
+        <table class="table table-borderless ml-3">
+          <tr>
+            <td class="col-md-3"><%= f.label :postal_code, "郵便番号(ハイフン無し)" %></td>
+            <td class=""><%= f.text_field :postal_code, placeholder: "0000000", class: "form-control"%></td>
+          </tr>
+          <tr>
+            <td><%= f.label :address, "住所" %></td>
+            <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :name, "宛先" %></td>
+            <td><%= f.text_field :name, placeholder: "令和道子", class: "form-control" %></td>
+          </tr>
+        </table>
+      </div>
+    <div class="text-center mb-5">
+      <%= f.submit "確認画面へ進む", class: 'btn btn-primary mb-5' %>
+    </div>
+  <% end %>
+</div>

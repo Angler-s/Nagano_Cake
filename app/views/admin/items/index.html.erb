@@ -1,0 +1,51 @@
+<div class="row d-inline">
+  <div class="d-flex col-8 offset-2 item-index-box">
+    <h5 class="bg-light col-2 text-center">商品一覧</h5>
+    <div class="ml-auto">
+      <%= link_to new_admin_item_path, class: "item-new-btn" do %>
+        <span class="new">
+          <i class="fa-light fa-plus"></i>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="row d-inline">
+  <div class="col-8 mx-auto">
+    <table class="table table-hover border-bottom ">
+      <thead class="bg-light table-sm">
+        <tr>
+          <th class="text-center">商品ID</th>
+          <th class="pl-4">商品名</th>
+          <th class="text-center">税抜価格</th>
+          <th class="text-center">ジャンル</th>
+          <th class="text-center">ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td class="text-center"><%= item.id %></td>
+            <td class:"text-truncate"><%= link_to item.name, admin_item_path(item), class:"d-inline-block text-truncate ml-3", style:"width: 300px;" %></td>
+            <td class="text-center">¥<%= item.price.to_s(:delimited) %></td>
+            <td class="text-center"><%= item.item_genre.name %></td>
+
+            <td class="text-center">
+              <% if item.status == "販売中" %>
+                <b class="text-success"><%= item.status %></b>
+              <% else %>
+                <b class="text-secondary"><%= item.status %></b>
+              <% end %>
+            </td>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="row" >
+      <div class="mx-auto mb-5">
+        <%= paginate @items, theme: 'bootstrap-5', class: "col-md-9"  %>
+      </div>
+    </div>
+  </div>
+</div>

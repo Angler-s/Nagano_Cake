@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-6">
+    <h4 class="mt-5">ジャンル一覧・追加</h4><br>
+    <%= render 'layouts/error_messages', obj: @item_genre %>
+      <div class="form">
+        <%= form_with model: [:admin, @item_genre] do |f| %>
+          <%= f.label :name, "ジャンル名", class:"mr-5" %>
+          <%= f.text_field :name, placeholder: "ジャンル名", class:"mr-5" %>
+          <%= f.submit '新規登録', class:"btn btn-success" %>
+        <% end %>
+      </div>
+  </div>
+</div>
+
+<div class="row mb-5">
+  <div class="col-md-4">
+    <table class="table my-5">
+      <thead class="thead-light">
+        <tr>
+          <th><b>ジャンル</b></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+          <% @item_genres.each do |genre| %>
+            <tr>
+              <td><%= genre.name %></td>
+              <td><%= link_to "編集する", edit_admin_item_genre_path(genre.id), class:"btn btn-success form-control" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<div class="row d-inline">
+  <div class="offset-2 pl-3">
+    <h5 class="bg-light col-2 text-center px-0">検索結果</h5>
+  </div>
+  <div class="col-md-8 mx-auto">
+    <% if @items.present? %>
+      <table class="table table-hover border-bottom">
+        <thead class="bg-light table-sm">
+          <tr>
+            <th class="text-center">商品ID</th>
+            <th class="pl-4">商品名</th>
+            <th class="text-center">税抜価格</th>
+            <th class="text-center">ジャンル</th>
+            <th class="text-center">ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td class="text-center"><%= item.id %></td>
+              <td class:"text-truncate"><%= link_to item.name, admin_item_path(item), class:"d-inline-block text-truncate ml-3", style:"width: 300px;" %></td>
+              <td class="text-center"><%= item.price.to_s(:delimited) %></td>
+              <td class="text-center"><%= item.item_genre.name %></td>
+
+              <td class="text-center">
+                <% if item.status == "販売中" %>
+                  <b class="text-success"><%= item.status %></b>
+                <% else %>
+                  <b class="text-secondary"><%= item.status %></b>
+                <% end %>
+              </td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    <!--カスタマーも検索できるようにする場合に使用-->
+
+    <% elsif @customers.present? %>
+      <table class="table table-hover border-bottom text-center">
+        <thead class="bg-light table-sm">
+          <tr>
+            <th>氏名</th>
+            <th>フリガナ</th>
+            <th>電話番号</th>
+            <th>会員ステータス</th>
+            <th>注文履歴一覧</th>
+          </tr>
+        </thead>
+        <tbody>
+      <% @customers.each do |customer| %>
+
+        <tr>
+          <td><%= link_to customer.full_name, admin_customer_path(customer) %></td>
+          <td><%= customer.last_name_kana %>  <%=customer.first_name_kana %></td>
+          <td><%= customer.phone_number %></td>
+          <td>
+            <% if customer.is_deleted == false %>
+              <b class="text-success">有効</b>
+            <% else %>
+              <b class="text-secondary">退会</b>
+            <% end %>
+          </td>
+          <td><%= link_to "確認する", order_index_admin_customer_path(customer.id) %></td>
+        </tr>
+      </table>
+      <% end %>
+
+    <% else %>
+
+    検索結果はありません。
+
+    <% end %>
+　</div>
+
+  <div class="row" >
+    <div class="mx-auto mb-5">
+      <%= paginate @items, theme: 'bootstrap-5', class: "col-md-9"  %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+
+<div class="row">
+  <div class="col-md-3 offset-1">
+    <h2 class="text-center bg-light">注文情報確認</h2>
+  </div>
+  <div class="col-md-9">
+    <table class="table table-bordered">
+      <thead>
+        <tr class="bg-light">
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cart_items.each do |cart_item| %>
+          <tr>
+            <td><%= image_tag cart_item.item.item_image, size: '60x40', class:"mx-2" %>
+                <%= cart_item.item.name %></td>
+            <td class="align-middle">¥<%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
+            <td class="align-middle"><%= cart_item.count %></td>
+            <td class="align-middle">¥<%= cart_item.subtotal.to_s(:delimited) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-3">
+    <table class="table table-bordered">
+      <tr>
+        <th class="bg-light">送料</th>
+        <td>¥<%= @order.delivery_fee %></td>
+      </tr>
+      <tr>
+        <th class="bg-light">商品合計</th>
+        <td>¥<%= @total_price.to_s(:delimited) %></td>
+      </tr>
+      <tr>
+        <th class="bg-light">請求金額</th>
+        <td>¥<%= @order.amount_billed.to_s(:delimited) %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="row py-3 pl-3">
+  <h3 class="pr-3">支払方法</h3>
+  <%= @order.payment_i18n %>
+</div>
+<div class="row py-3 pl-3">
+  <h3 class="pr-3">お届け先</h3>
+  〒<%= @order.postal_code %> <%= @order.address  %><br>
+    <%= @order.name %>
+</div>
+
+<div class="row pt-5 mb-5">
+  <div class="mx-auto">
+    <%= form_with model: @order do |f| %>
+      <%= f.hidden_field :customer_id %>
+      <%= f.hidden_field :name %>
+      <%= f.hidden_field :postal_code %>
+      <%= f.hidden_field :address %>
+      <%= f.hidden_field :delivery_fee %>
+      <%= f.hidden_field :payment %>
+      <%= f.hidden_field :amount_billed %>
+      <%= f.submit "注文を確定する", class: 'btn btn-success mb-5' %>
+    <% end %>
+  </div>
+</div>
+
+ <script>
+//   window.addEventListener('beforeunload', function(e){
+//     e.preventDefault();
+//     e.returnValue = "unload?";
+//   });
+// </script>

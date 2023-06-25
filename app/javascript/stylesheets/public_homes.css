@@ -1,0 +1,107 @@
+header, footer {
+  background-color: rgba(255, 180, 210, 1);
+}
+
+.header-nab-box {
+  height: 110px;
+}
+
+input {
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.top-intro-box {
+  background-image: url("../../assets/images/nagano_bg_1.png");
+  background-position: center;
+  background-size: cover;
+  height: 270px;
+  width: 700px;
+}
+
+.top-intro-text {
+  position: absolute;
+  top: 50px;
+  left: 80px;
+}
+
+.top-intro-text p span {
+  width: auto;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 1);
+  font-size: 21px;
+}
+
+.item_genres_search_box {
+  position: relative;
+}
+
+.item_genres_search_box table {
+  position: relative;
+  z-index: 1
+}
+
+.item_genres_search_img {
+  background-image: url("../../assets/images/strawberry.png");
+  background-position: center;
+  background-size: cover;
+  height: 100px;
+  width: 60%;
+  position: absolute;
+  top: -54px;
+  left: 20%;
+  z-index: 2
+}
+
+.cake-btn {
+  color: #fff;
+  background-color: rgb(255,90,90);
+  border-color: rgb(255,90,90);
+}
+
+.table_border_radius {
+  border-radius: 5px;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+.table_border_radius tr td {
+	border: none;
+	background-color: rgb(255, 255, 160)
+}
+
+.table_border_radius tr td:first-child {
+  border-left: none;
+}
+
+.table_border_radius tr td:last-child {
+  border-right: none;
+}
+
+.table_border_radius tr:first-child td {
+  border-top: none;
+}
+
+.table_border_radius tr:last-child td {
+  border-bottom: none;
+}
+
+.page-item.active .page-link {
+  background-color: rgb(255, 180, 210);
+  border-color: rgb(255, 180, 210);
+}
+
+.page-link {
+  color: rgb(255, 180, 210);
+}
+
+.page-item a:hover {
+  color: rgb(255, 180, 210);
+}
+
+/*.genre_items_box {*/
+
+/*}*/
