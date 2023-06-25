@@ -21,6 +21,7 @@
     <% else %>
       <p>商品購入には会員登録が必要です。</p>
       <%= link_to '新規登録はこちら', new_customer_registration_path, class:"text-info my-3" %>
+      <%= link_to '会員の方はこちら', new_customer_session_path, class:"text-success ml-3 my-3" %>
     <% end %>
 
   </div>
