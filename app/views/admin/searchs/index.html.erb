@@ -52,7 +52,7 @@
       <% @customers.each do |customer| %>
 
         <tr>
-          <td><%= link_to customer.full_name, admin_customers_path(customer) %></td>
+          <td><%= link_to customer.full_name, admin_customer_path(customer) %></td>
           <td><%= customer.last_name_kana %>  <%=customer.first_name_kana %></td>
           <td><%= customer.phone_number %></td>
           <td>
