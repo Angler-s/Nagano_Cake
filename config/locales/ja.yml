@@ -28,15 +28,17 @@ ja:
   activerecord:
     attributes:
       customer:
-        customer:         '会員情報'
-        last_name:        '姓'
-        last_name_kana:   'セイ'
-        first_name:       '名'
-        first_name_kana:  'メイ'
-        email:            'メールアドレス'
-        postal_code:      '郵便番号'
-        address:          '住所'
-        phone_number:     '電話番号'
+        customer:               '会員情報'
+        last_name:              '姓'
+        last_name_kana:         'セイ'
+        first_name:             '名'
+        first_name_kana:        'メイ'
+        email:                  'メールアドレス'
+        postal_code:            '郵便番号'
+        address:                '住所'
+        phone_number:           '電話番号'
+        password:               'パスワード'
+        password_confirmation:  '確認用パスワード'
 
       item:
         name:             "商品名"
@@ -58,3 +60,4 @@ ja:
         required:         "を入力してください。"
         greater_than_or_equal_to: "は1以上の値を入力してください"
         less_than_or_equal_to: "は10,000,000以下の値を入力してください"
+        confirmation: "と入力されたパスワードの内容が一致しません"
